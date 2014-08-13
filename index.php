@@ -6,7 +6,7 @@
 <?php
 $form = "<form action='./index.php' method='post'>
 	<div id='field1'>
-			<table>
+			<table border='1'>
 					<tr>
 					<td>Username:</td>
 					<td><input type='text' name='user' /></td>
