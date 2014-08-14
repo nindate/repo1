@@ -1,39 +1,26 @@
 <!DOCTYPE HTML>
 
 <html>
-
 <head>
 
 <style>
-
 .error {color: #FF0000;}
-
 </style>
 
 </head>
-
 <body>
-
 
 
 <?php
 
 // define variables and set to empty values
-
 $firstnameErr = $lastnameErr = $genderErr = $ageErr = "";
-
 $firstname = $lastname = $gender = $comment = $age = "";
 
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
    if (empty($_POST["firstname"])) {
-
      $firstnameErr = "First Name is required";
-
    } else {
-
      $firstname = test_input($_POST["firstname"]);
 
      // check if name only contains letters and whitespace
