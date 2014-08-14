@@ -4,9 +4,9 @@
 <body>
 
 <?php
-$form = "<form action='./index.php' method='post'>
+$form = "<form action='./sqldb3.php' method='post'>
 	<div id='field1'>
-			<table border='1'>
+			<table>
 					<tr>
 					<td>Username:</td>
 					<td><input type='text' name='user' /></td>
