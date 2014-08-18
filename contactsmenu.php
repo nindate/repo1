@@ -13,6 +13,7 @@
 
 
 <?php
+$loginuser=$_SESSION['loginuser'];
 
 // define variables and set to empty values
 $firstnameErr = $lastnameErr = $genderErr = $ageErr = "";
@@ -119,8 +120,10 @@ function test_input($data) {
 
 
 <?php 
+// $_SESSION['loginuser']=$_POST['loginuser'];
+// $loginuser=$_SESSION['loginuser'];
 echo "<h2>You are using My Contacts application on web server 1</h2>";
-echo "<h3 style='color: blue'>Welcome " . $_POST['loginuser'] .  "</b></h3>" ;
+echo "<h3 style='color: blue'>Welcome " . $loginuser .  "</b></h3>" ;
 ?>
 
 

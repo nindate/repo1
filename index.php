@@ -15,7 +15,6 @@ $form = "<form action='./contactsmenu.php' method='post'>
 					</tr>
 			</table>
 	</div>";
-
 echo $form;
 
 ?>
