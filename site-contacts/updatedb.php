@@ -12,7 +12,7 @@ $new_firstname=$_POST['firstname'] ;
 
 $new_lastname=$_POST['lastname'] ;
 
-$new_age=$_POST['age'] ;
+$new_contactno=$_POST['contactno'] ;
 
 $new_comment=$_POST['comment'] ;
 
@@ -20,7 +20,7 @@ $new_comment=$_POST['comment'] ;
 
 // Create connection
 
-$con=mysqli_connect("$OPENSHIFT_MYSQL_DB_HOST","user1","password","php");
+$con=mysqli_connect("localhost","user1","password","test2");
 // $con=mysqli_connect("127.3.104.2:3306","user1","password","php");
 // $con=mysqli_connect("10.0.2.21","user1","openstack","test");
 // $con=mysqli_connect("192.168.1.72","user1","openstack","test");
@@ -39,7 +39,7 @@ if (mysqli_connect_errno()) {
 
 // Run query
 
- $sql="INSERT INTO Persons (FirstName, LastName, Age, Comments) VALUES ('$new_firstname','$new_lastname','$new_age','$new_comment')";
+ $sql="INSERT INTO Persons (FirstName, LastName, ContactNo, Comments) VALUES ('$new_firstname','$new_lastname','$new_contactno','$new_comment')";
 
  if (mysqli_query($con,$sql)) {
 
@@ -69,7 +69,7 @@ mysqli_close($con);
 
 <?php
 
-header('Location: sqldb3.php');
+header('Location: contactsmenu.php');
 
 ?>
 
