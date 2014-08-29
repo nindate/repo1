@@ -16,7 +16,7 @@ $form = "<form action='./contactsmenu.php' method='post'>
 			</table>
 	</div>";
 echo $form;
-
+// $_SESSION['loginuser']=$_POST['loginuser'];
 ?>
 
 

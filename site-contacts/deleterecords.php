@@ -3,7 +3,12 @@
 $checkboxvar=$_SESSION['checkboxvar'];
 
 // Create connection
-$con=mysqli_connect('localhost','user1','password','test2');
+// $con=mysqli_connect('localhost','user1','password','test2');
+require('connectdb.php');
+$con=$_SESSION['$con'];
+
+// Select database
+mysqli_select_db($con,"test2");
 
 // Check connection
 if (mysqli_connect_errno()) {

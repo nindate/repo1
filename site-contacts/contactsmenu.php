@@ -13,7 +13,8 @@
 
 
 <?php
-$loginuser=$_SESSION['loginuser'];
+$loginuser=$_POST['loginuser'];
+$_SESSION['loginuser']=$loginuser;
 
 // define variables and set to empty values
 $firstnameErr = $lastnameErr = $genderErr = $ageErr = "";
@@ -130,13 +131,19 @@ echo "<h3 style='color: blue'>Welcome " . $loginuser .  "</b></h3>" ;
 <?php
 
 // Create connection
-$con=mysqli_connect("localhost","user1","password","test2");
+// $con=mysqli_connect("localhost","user1","password","test2");
 
 // Check connection
-if (mysqli_connect_errno()) {
-   echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
+// if (mysqli_connect_errno()) {
+//    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+// }
 
+// Create connection
+require('connectdb.php');
+$con=$_SESSION['$con'];
+
+// Select database
+mysqli_select_db($con,"test2");
 
 // Run query
 $sql="select ID,FirstName,LastName,ContactNo,Comments from Persons;";
