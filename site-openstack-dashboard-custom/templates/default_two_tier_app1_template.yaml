@@ -1,0 +1,110 @@
+heat_template_version: 2013-05-23
+
+description: >
+  HOT template to create a new neutron network plus a router to the public
+  network, and for deploying two servers into the new network. The template also
+  assigns floating IP addresses to each server so they are routable from the
+  public network.
+
+parameters:
+  web_server_name:
+    type: string
+    description: Name to be assigned to the web server
+  web_server_flavor:
+    type: string
+    description: Flavor to use for web server
+  db_server_name:
+    type: string
+    description: Name to be assigned to the db server
+  db_server_flavor:
+    type: string
+    description: Flavor to use for servers
+  db_root_pass:
+    type: string
+    description: Password to be set for mysql root user
+  db_user:
+    type: string
+    description: Database user to be created for application tables
+  db_user_pass:
+    type: string
+    description: Password for database user for application tables
+  key_name:
+    type: string
+    description: Name of keypair to assign to servers
+
+resources:
+  db_server1:
+    type: OS::Nova::Server
+    properties:
+      name: { get_param: db_server_name }
+      image: ubuntu-db-mysql-base
+      flavor: { get_param: db_server_flavor }
+      key_name: { get_param: key_name }
+      networks:
+        - port: { get_resource: db_server1_port }
+      user_data_format: RAW
+      user_data:
+        str_replace:
+          template: |
+            #!/bin/bash
+            mysql -u root --password=password <<EOF
+            use mysql;
+            create user '$new_db_user'@'%' identified by '$new_db_user_password';
+            create database appdb;
+            grant all privileges on appdb.* to '$new_db_user'@'%';
+            use appdb;
+            create table Persons (ID INT NOT NULL AUTO_INCREMENT, FirstName CHAR(40) NOT NULL, LastName CHAR(40) NOT NULL, Age INT, Comments TEXT, PRIMARY KEY (ID)) ;
+            mysqladmin -u root --password=password password $new_db_root_password
+            EOF
+          params:
+            $new_db_root_password: { get_param: db_root_pass }
+            $new_db_user: { get_param: db_user }
+            $new_db_user_password: { get_param: db_user_pass }
+
+  db_server1_port:
+    type: OS::Neutron::Port
+    properties:
+      network_id: b76847ae-5bdf-4f49-8fd8-51f0b2900ff2
+      fixed_ips:
+        - subnet_id: 0404a65b-7fed-4861-9a3f-c7e75f5e445b
+
+  web_server1:
+    type: OS::Nova::Server
+    properties:
+      name: { get_param: web_server_name }
+      image: ubuntu-http
+      flavor: { get_param: web_server_flavor }
+      key_name: { get_param: key_name }
+      networks:
+        - port: { get_resource: web_server1_port }
+      user_data_format: RAW
+      user_data:
+        str_replace:
+          template: |
+            #!/bin/bash
+            cp /etc/resolv.conf /etc/org-resolv.conf
+            mkdir /var/nfsmnt
+          params:
+            $websrv_name: { get_param: web_server_name }
+
+  web_server1_port:
+    type: OS::Neutron::Port
+    properties:
+      network_id: d5202a43-ce84-4050-aecf-f889261108a9
+      fixed_ips:
+        - subnet_id: 9a9e89be-e98c-44ec-9afb-cf2476ade03b
+
+  web_server1_floating_ip:
+    type: OS::Neutron::FloatingIP
+    properties:
+      floating_network_id: d7d3d3a3-a601-4661-8d28-16f02f76ca21
+      port_id: { get_resource: web_server1_port }
+
+outputs:
+  web_server1_private_ip:
+    description: IP address of web server1 in private network
+    value: { get_attr: [ web_server1, fixed_ips ] }
+  db_server1_private_ip:
+    description: IP address of db server1 in private network
+    value: { get_attr: [ db_server1, fixed_ips ] }
+

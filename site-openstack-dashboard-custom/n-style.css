@@ -1,0 +1,211 @@
+
+#header{
+    background-color: white; /* #85A3FF; */
+    color: black;
+    outline-width: 0px;
+    margin-bottom: 5px;
+    padding: 0px;
+    height: 150px;
+}
+
+#header h1{
+    padding-top: 20px;
+    color: #FF0000;
+
+}
+
+#header .headerimg{
+    float: left;
+    width: 110px;
+    height: 90px;
+    margin-left: 400px;
+    margin-right: 20px;
+    margin-top:  5px;
+}
+
+#navbar{
+    height: 70px;
+    margin-left: 270px;
+}
+
+#navbar .navhome{
+    background-color: #832A7C;
+
+}
+
+#navbar .naviaas{
+    background-color: #FF0000;
+}
+
+#navbar .navpaas{
+    background-color: #5F5A54;
+}
+
+#navbar .navsaas{
+    background-color: #00BAAB;
+}
+
+#navbar .navcontact{
+    background-color: #008238;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+#navbar li {
+    float: left;
+
+}
+
+#navbar a {
+    display: block;
+    width: 170px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 5px;;
+    height: 55px;
+    color: white;
+    /* font-size: 14px; */
+}
+
+/* unvisited link 
+#navbar a:link {
+    color: white;
+}
+
+ visited link 
+#navbar a:visited {
+    color: #00FF00;
+}*/
+
+/* mouse over link */
+#navbar a:hover {
+    height: 70px;
+    font-size: 20px;
+}
+
+/* selected link */
+#navbar a:active {
+    color: #0000FF;
+}
+
+
+#content1{
+background-color: #FFFFFF;
+color: black;
+min-height: 300px;
+
+}
+
+#content1 .content1-left{
+background-color: #F75236;
+color: white;
+float: left;
+width: 260px;
+}
+
+
+#content1 .content1-right{
+background-color:  #9966FF;/* #A3A3FF; */
+color: black;
+float: right;
+width: 1020px;
+}
+
+
+#content2{
+background-color: #E5E5EE;
+color: black;
+outline: 5px;
+border: 10px;
+margin: 0px;
+padding: 0px;
+
+}
+
+
+#content3{
+background-color: #E5E5EE;
+color: black;
+outline: 5px;
+border: 10px;
+margin: 0px;
+padding: 0px;
+
+}
+
+table {
+    border-collapse: collapse;
+    font-size: small;
+}
+
+th {
+    text-align: center;
+    vertical-align: middle;
+    background-color: #A7C942;
+    color: #ffffff;
+    height: 30px;
+}
+
+td {
+    text-align: left;
+    vertical-align: middle;
+}
+
+.table-paas tr.alt td {
+    color: #000000;
+    background-color: #EAF2D3;
+}
+
+.table-paas table, td, th {
+    border: 2px solid black;
+}
+
+#footer{
+background-color: #0096D3;
+color: white;
+outline: 5px;
+border: 10px;
+margin: 0px;
+padding: 0px;
+
+}
+
+
+.clear{
+clear: both;
+}
+
+
+
+/*	Some reference colours 
+
+HTML code:	#C33B21
+RGB code:	R: 195 G: 59 B: 33
+
+	 HTML code:	#832A7C
+RGB code:	R: 131 G: 42 B: 124
+
+HTML code:	#F75236
+RGB code:	R: 247 G: 82 B: 54
+
+	 HTML code:	#FC7F23
+RGB code:	R: 252 G: 127 B: 35
+
+HTML code:	#5F5A54
+RGB code:	R: 95 G: 90 B: 84
+
+	 HTML code:	#008238
+RGB code:	R: 0 G: 130 B: 56
+
+HTML code:	#00BAAB
+RGB code:	R: 0 G: 186 B: 171
+
+	 HTML code:	#0395D1
+RGB code:	R: 3 G: 149 B: 209
+*/

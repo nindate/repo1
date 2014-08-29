@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<?php
+error_reporting (E_ALL ^ E_NOTICE);
+session_start();
+?>
+
+<html>
+
+<head>
+	<title> My website </title>
+	<link rel="stylesheet" type="text/css" href="n-style.css" />
+</head>
+
+
+<body>
+
+	<div id="header">   
+		<a href='./logout.php'> <img src='./images/logout.jpg' width='200' alt='Logout' align='right'/> </a>
+		<a href='./change_login.php' style='padding-left: 900px'> Login as different user </a>
+		<p> <img class="headerimg" src="openstack-cloud-software-vertical-small.png" width="107" height="90"> <h1> <span style="color:#94928F;">open</span><span style="color:red;">stack</span><span style="color:black;"> dashboard </span></h1>  </p>
+
+	</div>
+
+	<div id="navbar">   
+		<ul> 
+			<li class="navhome"><a href="n1.html"><b> Home </b></a></li>
+			<li class="naviaas"><a href="iaas.html"><b> IaaS </b></a></li>  
+			<li class="navpaas"><a href="paas.html"><b> PaaS </b></a></li>  
+			<li class="navsaas"><a href="saas.html"><b> SaaS </b></a></li>  
+			<li class="navcontact"><a href="contact.html"><b> Contact Us </b></a></li>
+		</ul>
+	</div>
+
+	<div id="content1">   
+		<p> <h3> Platform as a Service [PaaS] </h3>  </p>
+		<form action="deploytemplate.php" method="post">
+		<p>Select a deployment from below options and click Submit. <input type="submit" name="selecteddeployment"></p>
+		<table class="table-top">
+			<tr>
+				<th style="width: 5px;">Architecture</th>
+				<th style="width: 200px;">Deployment</th>
+				<th style="width: 5px;">Load Balancer</th>
+				<th style="width: 5px;">Web</th>
+				<th style="width: 5px;">App</th>
+				<th style="width: 5px;">Database</th>
+				<th style="width: 5px;">Select</th>
+
+			</tr>
+			<tr>
+				<td>Two Tier <input type='hidden' name='arch' value='twotier'></td>
+				<td>Web and DB on single OS instance (default)</td>
+				<td>NA</td>
+				<td>Apache2 on CentOS 6.5</td>
+				<td>NA</td>
+				<td>MySQL on CentOS 6.5</td>
+				<td><input type='radio' name='deployment' value='d1'></td>
+
+			</tr>
+			<tr class="alt">
+				<td>Two Tier</td>
+				<td>Web and DB on single OS instance (custom)</td>
+				<td>NA</td>
+				<td><table class="table-sub">
+					<tr>
+					<td>
+						<select name='web'>
+						<option value='apache2'>Apache2</option>
+						<option value='nginx'>NGINX</option>
+						</select>
+					</td>
+					<td>
+						<select name='os'>
+						<option value='centos6_5'>CentOS 6.5</option>
+						<option value='ubuntu14_04'>Ubuntu 14.04</option>
+						</select>
+					</td>
+					</tr>
+				</table></td>
+				<td>NA</td>
+				<td><table class="table-sub">
+					<tr>
+					<td>
+						<select name='db'>
+						<option value='mysql'>MySQL</option>
+						<option value='postgresql'>PostgreSQL</option>
+						</select>
+					</td>
+					<td>
+						<select name='os'>
+						<option value='centos6_5'>CentOS 6.5</option>
+						<option value='ubuntu14_04'>Ubuntu 14.04</option>
+						</select>
+					</td>
+					</tr>
+				</table></td>
+				<td><input type='radio' name='deployment' value='d2'></td>
+			</tr>
+			<tr>
+				<td>Two Tier</td>
+				<td>Web and DB on two separate OS instances (default)</td>
+				<td>NA</td>
+				<td>Apache2 on CentOS 6.5</td>
+				<td>NA</td>
+				<td>MySQL on CentOS 6.5</td>
+				<td><input type='radio' name='deployment' value='d3'></td>
+			</tr>
+			<tr class="alt">
+				<td>Two Tier</td>
+				<td>Web and DB on two separate OS instances (custom)</td>
+				<td>NA</td>
+				<td><table class="table-sub">
+					<tr>
+					<td>
+						<select name='web'>
+						<option value='apache2'>Apache2</option>
+						<option value='nginx'>NGINX</option>
+						</select>
+					</td>
+					<td>
+						<select name='os'>
+						<option value='centos6_5'>CentOS 6.5</option>
+						<option value='ubuntu14_04'>Ubuntu 14.04</option>
+						</select>
+					</td>
+					</tr>
+				</table></td>
+				<td>NA</td>
+				<td><table class="table-sub">
+					<tr>
+					<td>
+						<select name='db'>
+						<option value='mysql'>MySQL</option>
+						<option value='postgresql'>PostgreSQL</option>
+						</select>
+					</td>
+					<td>
+						<select name='os'>
+						<option value='centos6_5'>CentOS 6.5</option>
+						<option value='ubuntu14_04'>Ubuntu 14.04</option>
+						</select>
+					</td>
+					</tr>
+				</table></td>
+				<td><input type='radio' name='deployment' value='d4'></td>
+			</tr>
+			<tr>
+				<td>Two Tier</td>
+				<td>Two load balanced Web instances and one DB instance (default)</td>
+				<td>Openstack</td>
+				<td>Apache2 on CentOS 6.5</td>
+				<td>NA</td>
+				<td>MySQL on CentOS 6.5</td>
+				<td><input type='radio' name='deployment' value='d5'></td>
+			</tr>
+			<tr class="alt">
+				<td>Two Tier</td>
+				<td>Two load balanced Web instances and one DB instance (custom)</td>
+				<td>
+					<select name='lb'>
+					<option value='openstack'>Openstack</option>
+					<option value='nlb'>Dedicated NLB</option>
+					</select>
+				</td>
+				<td><table class="table-sub">
+					<tr>
+					<td>
+						<select name='web'>
+						<option value='apache2'>Apache2</option>
+						<option value='nginx'>NGINX</option>
+						</select>
+					</td>
+					<td>
+						<select name='os'>
+						<option value='centos6_5'>CentOS 6.5</option>
+						<option value='ubuntu14_04'>Ubuntu 14.04</option>
+						</select>
+					</td>
+					</tr>
+				</table></td>
+				<td>NA</td>
+				<td><table class="table-sub">
+					<tr>
+					<td>
+						<select name='db'>
+						<option value='mysql'>MySQL</option>
+						<option value='postgresql'>PostgreSQL</option>
+						</select>
+					</td>
+					<td>
+						<select name='os'>
+						<option value='centos6_5'>CentOS 6.5</option>
+						<option value='ubuntu14_04'>Ubuntu 14.04</option>
+						</select>
+					</td>
+					</tr>
+				</table></td>
+				<td><input type='radio' name='deployment' value='d6'></td>
+			</tr>
+			<tr>
+				<td>Two Tier</td>
+				<td>Multiple Web and DB instances (custom)</td>
+				<td>
+					<select name='lb'>
+					<option value='openstack'>Openstack</option>
+					<option value='nlb'>Dedicated NLB</option>
+					</select>
+				</td>
+				<td><table class="table-sub">
+					<tr>
+					<td>
+						<select name='web'>
+						<option value='apache2'>Apache2</option>
+						<option value='nginx'>NGINX</option>
+						</select>
+					</td>
+					<td>
+						<select name='os'>
+						<option value='centos6_5'>CentOS 6.5</option>
+						<option value='ubuntu14_04'>Ubuntu 14.04</option>
+						</select>
+					</td>
+					<td>
+						<input type='number' name='webqty' min='1' max='10' value='1'>
+					</td>
+					</tr>
+				</table></td>
+				<td>NA</td>
+				<td><table class="table-sub">
+					<tr>
+					<td>
+						<select name='db'>
+						<option value='mysql'>MySQL</option>
+						<option value='postgresql'>PostgreSQL</option>
+						</select>
+					</td>
+					<td>
+						<select name='os'>
+						<option value='centos6_5'>CentOS 6.5</option>
+						<option value='ubuntu14_04'>Ubuntu 14.04</option>
+						</select>
+					</td>
+					<td>
+						<input type='number' name='webqty' min='1' max='10' value='1'>
+					</td>
+					</tr>
+				</table></td>
+				<td><input type='radio' name='deployment' value='d7'></td>
+			</tr>
+			<tr class="alt">
+				<td>Three Tier</td>
+				<td>Web, App and DB on single OS instance (default)</td>
+				<td>NA</td>
+				<td>Apache2 on CentOS 6.5</td>
+				<td>Tomcat on CentOS 6.5</td>
+				<td>MySQL on CentOS 6.5</td>
+				<td><input type='radio' name='deployment' value='d21'></td>
+			</tr>
+			<tr>
+				<td>Three Tier</td>
+				<td>Web, App and DB on single OS instance (custom)</td>
+				<td>NA</td>
+				<td><table class="table-sub">
+					<tr>
+					<td>
+						<select name='web'>
+						<option value='apache2'>Apache2</option>
+						<option value='nginx'>NGINX</option>
+						</select>
+					</td>
+					<td>
+						<select name='os'>
+						<option value='centos6_5'>CentOS 6.5</option>
+						<option value='ubuntu14_04'>Ubuntu 14.04</option>
+						</select>
+					</td>
+					</tr>
+				</table></td>
+				<td><table class="table-sub">
+					<tr>
+					<td>
+						<select name='app'>
+						<option value='tomcat'>Tomcat</option>
+						<option value='jboss'>JBoss</option>
+						</select>
+					</td>
+					<td>
+						<select name='os'>
+						<option value='centos6_5'>CentOS 6.5</option>
+						<option value='ubuntu14_04'>Ubuntu 14.04</option>
+						</select>
+					</td>
+					</tr>
+				</table></td>
+				<td><table class="table-sub">
+					<tr>
+					<td>
+						<select name='db'>
+						<option value='mysql'>MySQL</option>
+						<option value='postgresql'>PostgreSQL</option>
+						</select>
+					</td>
+					<td>
+						<select name='os'>
+						<option value='centos6_5'>CentOS 6.5</option>
+						<option value='ubuntu14_04'>Ubuntu 14.04</option>
+						</select>
+					</td>
+					</tr>
+				</table></td>
+				<td><input type='radio' name='deployment' value='d22'></td>
+			</tr>
+		</table>
+		</form>
+	</div>
+
+	<div class="clear">   
+
+	</div>
+
+
+	<div id="footer">   
+		<p> <h1> Footer </h1>  </p>
+
+	</div>
+
+</body>
+</html>
