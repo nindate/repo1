@@ -56,7 +56,7 @@ if (mysqli_connect_errno()) {
 
 
 // Run query
-$sql="select ID,FirstName,LastName,ContactNo,Comments from Persons;";
+$sql="select ID,FirstName,LastName,ContactNo,Comments from Persons order by ID desc limit 10;";
 $result = mysqli_query($con,$sql);
 if ($result) {
   echo "<br>";
@@ -70,6 +70,7 @@ mysqli_close($con);
 
 echo "<hr>";
 echo "<h3>Current contacts: </h3>";
+echo "<b>Latest 10 entries</b>";
 echo "<form method='post' action='confirmdelete.php'>";
 echo "<ul>";
 
