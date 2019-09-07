@@ -91,11 +91,16 @@ function get_server_memory_usage(){
 
 
 function get_server_cpu_usage(){
-
-	$load = shell_exec('vmstat 1 2 | tail -1 | awk \'{print $(NF-2)}\'');
-	$util = 100 - $load;
-	return $util;
-
+  if (is_file('/var/www/html/cpu_util.txt'))
+  {
+    $load = shell_exec('cat /var/www/html/cpu_util.txt');
+    $util = $load + 0;
+  }
+  else {
+          $load = shell_exec('vmstat 1 2 | tail -1 | awk \'{print $(NF-2)}\'');
+          $util = 100 - $load;
+  }
+        return $util;
 }
 
 function num_cpus()
@@ -218,8 +223,6 @@ echo "</form>";
    <br><br>
    <input type="submit" name="Update" value="Update">
 </form>
-
-
 
 
 
