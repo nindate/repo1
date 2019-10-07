@@ -40,7 +40,7 @@ function test_input($data) {
 // $_SESSION['loginuser']=$_POST['loginuser'];
 // $loginuser=$_SESSION['loginuser'];
 echo "<h2>You are using My Contacts application</h2>";
-echo "<h3>version: v1.0</h3>";
+echo "<h3>version: v1.1</h3>";
 echo "<h3 style='color: blue'>Welcome " . $loginuser .  "</b></h3>" ;
 ?>
 
