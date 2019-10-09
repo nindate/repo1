@@ -39,8 +39,13 @@ function test_input($data) {
 <?php 
 // $_SESSION['loginuser']=$_POST['loginuser'];
 // $loginuser=$_SESSION['loginuser'];
-echo "<h2>You are using My Contacts application</h2>";
-echo "<h3>version: v2.0</h3>";
+   
+function get_server_name(){
+  $server_name = shell_exec('uname -n');
+  return $server_name;
+}
+echo "<h2>You are using My Contacts application on $server_name</h2>";
+echo "<h3>version: v1.0</h3>";
 echo "<h3 style='color: blue'>Welcome " . $loginuser .  "</b></h3>" ;
 ?>
 
