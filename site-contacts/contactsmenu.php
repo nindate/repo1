@@ -6,6 +6,11 @@
 
 <style>
 .error {color: #FF0000;}
+.logout{
+position: absolute;
+top: 19.92px;
+right: 10px;
+}
 </style>
 
 </head>
@@ -34,7 +39,25 @@ function test_input($data) {
 
 ?>
 
+<?php
+   echo '<input class="logout" type="button" value="logout" onclick=deleteAllCookies();>';
+?>
+<?php
+echo '
+<script type="text/javascript">
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
 
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+	document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+window.location.href = \'/index.php\'; 
+    }
+</script>'
+?>
 
 <?php 
 // $_SESSION['loginuser']=$_POST['loginuser'];
