@@ -69,7 +69,7 @@ function get_server_name(){
 }
 $server_name = get_server_name();
 echo "<h2>You are using My Contacts application on $server_name</h2>";
-echo "<h3>version: v2.0</h3>";
+echo "<h3>version: v1.1</h3>";
 echo "<h3 style='color: blue'>Welcome " . $loginuser .  "</b></h3>" ;
 ?>
 
