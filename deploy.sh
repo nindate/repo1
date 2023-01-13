@@ -28,5 +28,8 @@ echo -e "\nWill update dbuser: $dbuser , dbhost: $dbhost , dbport: $dbport"
 sudo sed -i -e "s/dbuser/$dbuser/g" -e "s/dbhost/$dbhost/g" -e "s/dbport/$dbport/g" -e "s/dbpass/$dbpass/g" create_db.sh site-contacts/*
 bash create_db.sh
 sudo mv site-contacts/* /var/www/html/
-
-echo -e "\nYou can now access your Contacts application by launching URL: http://your-server-name/index.php"
+if [[ $? == 0 ]]; then
+  echo -e "\nYou can now access your Contacts application by launching URL: http://your-server-name/index.php"
+else
+  echo -e "\nFailed to transfer web content to /var/www/html/"
+fi
