@@ -10,13 +10,13 @@ read dbhost
 echo -e -n "\nEnter database port : \c"
 read dbport
 
-echo "\nInstalling Apache and PHP"
-sudo apt update -y && sudo apt install -y apache2 php php-mysql
+echo -e -n "\nInstalling Apache and PHP"
+sudo apt update -y && sudo apt install -y apache2 mariadb-client php php-mysql
 sudo systemctl restart apache2
 
-echo "\nWill update dbuser: $dbuser , dbhost: $dbhost , dbport: $dbport"
+echo -e -n "\nWill update dbuser: $dbuser , dbhost: $dbhost , dbport: $dbport"
 sudo sed -i -e "s/dbuser/$dbuser/g" -e "s/dbhost/$dbhost/g" -e "s/dbport/$dbport/g" create_db.sh site-contacts/*
 bash create_db.sh
 sudo mv site-contacts/* /var/www/html/
 
-echo "\nYou can now access your Contacts application by launching URL: http://your-server-name/index.php"
+echo -e -n "\nYou can now access your Contacts application by launching URL: http://your-server-name/index.php"
