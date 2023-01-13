@@ -3,7 +3,7 @@
 # Script to create database 'test2', user 'user1' and table structure required for contactsapp
 # You can provide appropriate password by replacing 'password' with your password after downloading the script
 echo -e "\nCreating database\n"
-mysql -u dbuser -h dbhost -P dbport -pdbpass << EOM
+mysql -u dbuser -h dbhost -P dbport -p'dbpass' << EOM
 create user 'user1'@'%' identified by 'password';
 create user 'user1'@'localhost' identified by 'password';
 create database test2;
