@@ -17,13 +17,11 @@ sudo apt update -y && sudo apt install -y git
 2. Clone git repository
 
 ```
-cd /tmp
-git clone https://github.com/nindate/repo1.git
+cd /tmp ; git clone https://github.com/nindate/repo1.git
 ```
 
 3. Run deploy.sh to create necessary database tables in target database, update code with database details and deploy code to /var/www/html
 
 ```
-cd repo1
-bash deploy.sh
+cd repo1 ; bash deploy.sh
 ```
