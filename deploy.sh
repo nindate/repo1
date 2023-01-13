@@ -14,3 +14,5 @@ echo "\nWill update dbuser: $dbuser , dbhost: $dbhost , dbport: $dbport"
 sudo sed -i -e "s/dbuser/$dbuser/g" -e "s/dbhost/$dbhost/g" -e "s/dbport/$dbport/g" create_db.sh site-contacts/*
 bash create_db.sh
 sudo mv site-contacts/* /var/www/html/
+
+echo "\nYou can now access your Contacts application by launching URL: http://your-server-name/index.php"
