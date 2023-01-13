@@ -16,7 +16,6 @@ right: 10px;
 </head>
 <body>
 
-
 <?php
 $loginuser=$_SESSION['loginuser'];
 
@@ -24,19 +23,12 @@ $loginuser=$_SESSION['loginuser'];
 $firstnameErr = $lastnameErr = $genderErr = $ageErr = "";
 $firstname = $lastname = $gender = $comment = $age = "";
 
-
 function test_input($data) {
-
    $data = trim($data);
-
    $data = stripslashes($data);
-
    $data = htmlspecialchars($data);
-
    return $data;
-
 }
-
 ?>
 
 <?php
@@ -73,9 +65,7 @@ echo "<h3>version: v2.1</h3>";
 echo "<h3 style='color: blue'>Welcome " . $loginuser .  "</b></h3>" ;
 ?>
 
-
 <?php
-
 // Create connection
 $con=mysqli_connect("dbhost","user1","password","test2");
 
@@ -83,7 +73,6 @@ $con=mysqli_connect("dbhost","user1","password","test2");
 if (mysqli_connect_errno()) {
    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
-
 
 // Run query
 $sql="select ID,FirstName,LastName,ContactNo,Comments from Persons order by ID desc limit 10;";
@@ -93,7 +82,6 @@ if ($result) {
 } else {
   echo "Error running query: " . mysqli_error($con);
 }
-
 
 // Close connection
 mysqli_close($con);
@@ -112,25 +100,18 @@ echo "<span class='error'>*Presently there are no entries in the database</span>
 echo "<table border='1'>";
 echo "<tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Contact No</th><th>Comments</th><th></th></tr>";
 while($row = mysqli_fetch_array($result)) {
-
   // echo "<li>";
-
   echo "<tr>";
   echo "<td>" . $row['ID'] . "</td><td>" . $row['FirstName'] . "</td><td> " . $row['LastName'] . "</td><td>" . $row['ContactNo'] . "</td><td>" . $row['Comments'] . "</td>";
-
   $thisid=$row['ID'];
-
   echo "<td><input type='checkbox' name='checkboxvar[]' value='$thisid'>Delete</td>";
   echo "</tr>";
-
   // echo "</li>";
-
 }
 echo "</table>";
   echo "</ul>";
   echo "<input type='submit' name='Delete' value='Delete selected entries'>";
 echo "</form>";
-
 ?>
 
 <hr>
@@ -150,10 +131,5 @@ echo "</form>";
    <input type="submit" name="Update" value="Update">
 </form>
 
-
-
-
-
 </body>
-
 </html>
