@@ -1,8 +1,8 @@
 #!/bin/bash
 
 clear
-echo "Will install packages, update scripts, web pages, create database and deploy application\n"
-echo "Please provide following information to proceed\n"
+echo -e -n "Will install packages, update scripts, web pages, create database and deploy application\n"
+echo -e -n "Please provide following information to proceed\n"
 echo -e -n "\nEnter database hostname : \c"
 read dbhost
 echo -e -n "\nEnter database port : \c"
