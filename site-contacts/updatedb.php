@@ -19,7 +19,7 @@ $new_comment=$_POST['comment'] ;
 
 // Create connection
 
-$con=mysqli_connect("localhost","user1","password","test2");
+$con=mysqli_connect("dbhost","user1","password","test2");
 
 
 // Check connection
