@@ -77,7 +77,7 @@ echo "<h3 style='color: blue'>Welcome " . $loginuser .  "</b></h3>" ;
 <?php
 
 // Create connection
-$con=mysqli_connect("localhost","user1","password","test2");
+$con=mysqli_connect("dbhost","user1","password","test2");
 
 // Check connection
 if (mysqli_connect_errno()) {
