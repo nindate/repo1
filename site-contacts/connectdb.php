@@ -2,7 +2,7 @@
 session_start();
 
 // Create connection
-$con=mysqli_connect("localhost","user1","password");
+$con=mysqli_connect("dbhost","user1","password");
 $_SESSION['$con']=$con;
 // Check connection
 if (mysqli_connect_errno()) {
