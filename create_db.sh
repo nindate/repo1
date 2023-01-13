@@ -12,4 +12,9 @@ grant all privileges on test2.* to 'user1'@'%';
 grant all privileges on test2.* to 'user1'@'localhost';
 create table Persons (ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, FirstName CHAR(40) NOT NULL, LastName CHAR(40) NOT NULL, ContactNo BIGINT NOT NULL, Comments TEXT);
 EOM
-echo -e "\nDatabase creation script run completed\n"
+if [[ $? != 0 ]]; then
+  echo -e "\nDatabase creation failed. Exiting ..."
+  exit 1
+else
+  echo -e "\nDatabase creation script run completed\n"
+fi
