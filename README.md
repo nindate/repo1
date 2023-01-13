@@ -8,10 +8,10 @@ Install Apache HTTP server, PHP and PHP MySQL connector
 On Ubuntu
 ---------
 
-1. Update and install necessary packages
+1. Update, install git and clone thos repository
 
 ```
-sudo apt update -y && sudo apt install -y git apache2 php php-mysql
+sudo apt update -y && sudo apt install -y git
 ```
 
 2. Clone git repository
