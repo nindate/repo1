@@ -10,8 +10,9 @@ read dbhost
 echo -e -n "\nEnter database port : \c"
 read dbport
 
-echo "Installing Apache and PHP"
+echo "\nInstalling Apache and PHP"
 sudo apt update -y && sudo apt install -y apache2 php php-mysql
+sudo systemctl restart apache2
 
 echo "\nWill update dbuser: $dbuser , dbhost: $dbhost , dbport: $dbport"
 sudo sed -i -e "s/dbuser/$dbuser/g" -e "s/dbhost/$dbhost/g" -e "s/dbport/$dbport/g" create_db.sh site-contacts/*
