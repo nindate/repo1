@@ -1,12 +1,16 @@
 repo1
 =====
 
-Sample web app to manage contacts. Uses PHP code with MySQL database.
+Sample web app for demos. Web app to managed Contacts, uses Apache HTTP with PHP and MySQL database.
 
-Install Apache HTTP server, PHP and PHP MySQL connector
+Below are steps to setup on Ubuntu
 
-On Ubuntu
----------
+### Install MySQL database on Ubuntu
+
+1. apt update -y && apt install -y mariadb-server
+
+
+### Install Apache HTTP server, PHP and PHP MySQL connector
 
 1. Update, install git and clone thos repository
 
