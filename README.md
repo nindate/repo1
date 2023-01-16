@@ -16,7 +16,7 @@ To install, execute below steps
 1. Update and install package
 
 ```
-apt update -y && apt install -y mariadb-server
+sudo apt update -y && sudo apt install -y mariadb-server
 ```
 
 
