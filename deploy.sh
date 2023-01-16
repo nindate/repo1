@@ -26,7 +26,7 @@ elif [[ ${dbtype} == "paas" ]] ; then
     echo -e "\nPasswords did not match. Exiting ...\n"
     exit 1
   fi
-  mysql_conn_statement="mysql -u ${dbuser} -h ${dbhost} -P 3306 -p${dbpass2}"
+  mysql_conn_statement="mysql -u ${dbuser} -h ${dbhost} -P 3306 -p\'${dbpass2}\'"
 else
   echo -e "\nCorrect options are local and paas. Exiting ..."
   exit 1
