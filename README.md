@@ -3,11 +3,15 @@ repo1
 
 ## Sample web app for demos. 
 
-Web app to managed Contact. Uses Apache HTTP with PHP and MySQL database.
+Web app to managed Contact info. Uses Apache HTTP with PHP and MySQL database.
 
 *Below are the steps to setup on Ubuntu*
 
 **Install MySQL database**
+
+You can install MySQL database, use an existing MySQL database or use a Platform as a Service (PaaS) database from any of the Cloud Providers. 
+
+To install, execute below steps
 
 1. Update and install package
 
