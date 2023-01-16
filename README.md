@@ -1,30 +1,35 @@
 repo1
 =====
 
-Sample web app for demos. Web app to managed Contacts, uses Apache HTTP with PHP and MySQL database.
+## Sample web app for demos. 
 
-Below are steps to setup on Ubuntu
+Web app to managed Contact. Uses Apache HTTP with PHP and MySQL database.
 
-### Install MySQL database on Ubuntu
+*Below are the steps to setup on Ubuntu*
 
-1. apt update -y && apt install -y mariadb-server
+**Install MySQL database**
+
+1. Update and install package
+
+```
+apt update -y && apt install -y mariadb-server
+```
 
 
-### Install Apache HTTP server, PHP and PHP MySQL connector
+**Install Apache HTTP server, PHP and PHP MySQL connector**
 
-1. Update, install git and clone thos repository
+1. Update, install git and clone this repository
 
 ```
 sudo apt update -y && sudo apt install -y git
 ```
 
-2. Clone git repository
 
 ```
 cd /tmp ; git clone https://github.com/nindate/repo1.git
 ```
 
-3. Run deploy.sh to create necessary database tables in target database, update code with database details and deploy code to /var/www/html
+2. Run deploy.sh to create necessary database tables in target database, update code with database details and deploy code to /var/www/html
 
 ```
 cd repo1 ; bash deploy.sh
