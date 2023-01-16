@@ -27,7 +27,6 @@ sudo systemctl restart apache2
 echo -e "\nUpdating dbuser: $dbuser , dbhost: $dbhost , dbport: $dbport"
 sudo sed -i -e "s/dbuser/$dbuser/g" -e "s/dbhost/$dbhost/g" -e "s/dbport/$dbport/g" -e "s/dbpass/$dbpass/g" create_db.sh site-contacts/*.php
 bash create_db.sh
-rm create_db.sh
 echo -e "\nDeploying web content"
 sudo mv site-contacts/*.php /var/www/html/
 if [[ $? == 0 ]]; then
@@ -35,4 +34,3 @@ if [[ $? == 0 ]]; then
 else
   echo -e "\nFailed to transfer web content to /var/www/html/"
 fi
-rm -rf site-contacts
