@@ -34,3 +34,5 @@ if [[ $? == 0 ]]; then
 else
   echo -e "\nFailed to transfer web content to /var/www/html/"
 fi
+# Removing the default index.html file since we have index.php instead
+rm /var/www/html/index.html
