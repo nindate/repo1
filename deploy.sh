@@ -24,12 +24,15 @@ echo -e "\nInstalling Apache and PHP"
 sudo apt update -y && sudo apt install -y apache2 mariadb-client php php-mysql
 sudo systemctl restart apache2
 
-echo -e "\nWill update dbuser: $dbuser , dbhost: $dbhost , dbport: $dbport"
+echo -e "\nUpdating dbuser: $dbuser , dbhost: $dbhost , dbport: $dbport"
 sudo sed -i -e "s/dbuser/$dbuser/g" -e "s/dbhost/$dbhost/g" -e "s/dbport/$dbport/g" -e "s/dbpass/$dbpass/g" create_db.sh site-contacts/*
 bash create_db.sh
-sudo mv site-contacts/* /var/www/html/
+rm create_db.sh
+echo -e "\nDeploying web content"
+sudo mv site-contacts/*.php /var/www/html/
 if [[ $? == 0 ]]; then
   echo -e "\nYou can now access your Contacts application by launching URL: http://your-server-name/index.php"
 else
   echo -e "\nFailed to transfer web content to /var/www/html/"
 fi
+rm -rf site-contacts
