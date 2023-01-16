@@ -25,7 +25,7 @@ sudo apt update -y && sudo apt install -y apache2 mariadb-client php php-mysql
 sudo systemctl restart apache2
 
 echo -e "\nUpdating dbuser: $dbuser , dbhost: $dbhost , dbport: $dbport"
-sudo sed -i -e "s/dbuser/$dbuser/g" -e "s/dbhost/$dbhost/g" -e "s/dbport/$dbport/g" -e "s/dbpass/$dbpass/g" create_db.sh site-contacts/*
+sudo sed -i -e "s/dbuser/$dbuser/g" -e "s/dbhost/$dbhost/g" -e "s/dbport/$dbport/g" -e "s/dbpass/$dbpass/g" create_db.sh site-contacts/*.php
 bash create_db.sh
 rm create_db.sh
 echo -e "\nDeploying web content"
